@@ -7,6 +7,7 @@ import { format, setDate } from 'date-fns';
 import { DateRange } from 'react-date-range'
 import SearchItem from '../searchedItem/SearchItem'
 
+
 const List = () => {
   // use to get whatever stored in the location usl;
   // as we stored the states of search in state of location url we will just use them
