@@ -75,23 +75,23 @@ const Footer = () => {
 
                     </li>
                 </ul>
-                <ul class="fList">
-                    <li class="fListItem">
+                <ul className="fList">
+                    <li className="fListItem">
 
                         Car hire
 
                     </li>
-                    <li class="fListItem">
+                    <li className="fListItem">
 
                         Flight finder
 
                     </li>
-                    <li class="fListItem">
+                    <li className="fListItem">
 
                         Restaurant reservations
 
                     </li>
-                    <li class="fListItem">
+                    <li className="fListItem">
 
                         Booking.com for Travel Agents
 

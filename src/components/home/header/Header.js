@@ -6,11 +6,18 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { SearchContext } from '../../../context/SearchContext';
+import { AuthContext } from '../../../context/AuthContext';
 const Header = (props) => {
     const navigate = useNavigate();
     const [destination, setdestination] = useState("")
     const [openDate, setOpenDate] = useState(false);
     const [openOption, setopenOption] = useState(false);
+
+    const {dispatch} = useContext(SearchContext)
+
+
     const [options, setOptions] = useState({
         adult: 1,
         children: 0,
@@ -30,8 +37,15 @@ const Header = (props) => {
         })
     }
     const handleSearch = ()=>{
+        dispatch({type:"NEW_SEARCH" , payload:{destination,date,options}})
         navigate('/hotels',{state:{destination,date,options }} )
     }
+
+
+    const {  user } = useContext(AuthContext);
+
+
+    
 
     return (
         <div>
@@ -65,11 +79,13 @@ const Header = (props) => {
                         <p className='headerDesc'>
                             Get rewarded for your travels - unlock instant savings of 10% or more with a free Hotelhub account
                         </p>
-                        <button className='headerBtn'>Sign in / Register</button>
+                        {   !user && 
+                            <button className='headerBtn'>Sign in / Register</button>
+                        }
                         <div className="headerSearch">
                             <div className="headerSearchItem">
                                 <i className="fa-solid fa-bed headerIcon" ></i>
-                                <input type="text" placeholder='Where are you going ?' className='headerSearchInput'  onChange={e=>setdestination(e.target.value)}/>
+                                <input type="text" placeholder='Where are you going ?' className='headerSearchInput'  onChange={e=>setdestination(e.target.value.toLowerCase())}/>
                             </div>
                             <div className="headerSearchItem">
                                 <i className="fa-solid fa-calendar headerIcon"></i>

@@ -1,17 +1,28 @@
+import { useEffect } from 'react';
+import useFetch from '../../hooks/useFetch';
 import './featured.css'
 
 
-const Featured = () => {
+const Featured =  () => {
+
+
+
+    const { data, loading, error } =  useFetch("/hotels/countByCity?cities=delhi,mumbai,jaipur");
+
+
     return (
         <div className="featured">
-            <div className="featuredItem">
+            {
+                loading? "Loading please wait" :
+                
+                <><div className="featuredItem">
                 <img src="https://cf.bstatic.com/xdata/images/city/600x600/684765.jpg?k=3f7d20034c13ac7686520ac1ccf1621337a1e59860abfd9cbd96f8d66b4fc138&o=" className='featuredImg' alt="" />
                 <div className="featuredTitles">
                     <h1>
                         Delhi
                     </h1>
                     <h2>
-                        999 Properties
+                        {data[0]} Properties
                     </h2>
                 </div>
             </div>
@@ -22,7 +33,7 @@ const Featured = () => {
                         Mumbai
                     </h1>
                     <h2>
-                        888 Properties
+                    {data[1]} Properties
 
                     </h2>
                 </div>
@@ -34,12 +45,12 @@ const Featured = () => {
                         Jaipur
                     </h1>
                     <h2>
-                        777 Properties
+                    {data[2]} Properties
 
 
                     </h2>
                 </div>
-            </div>
+            </div></>}
         </div>
     )
 }

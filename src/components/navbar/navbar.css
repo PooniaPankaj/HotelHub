@@ -25,3 +25,18 @@
     color: #003580;
     background-color: white;
 }
+.loggedIn{
+    
+    display: flex;
+    align-items: center;
+}
+.loggedIn>i{
+    
+    padding: 10px 10px; 
+    background-color: white;
+    color: #003580;
+    border-radius: 50%;
+}
+.usrProfile{
+    padding-left: 10px;
+}
