@@ -5,6 +5,7 @@ import Home from './components/home/Home'
 import List from './components/list/List';
 import Hotel from './components/hotel/Hotel';
 import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 function App() {
   return (
     <Routes>
@@ -12,6 +13,7 @@ function App() {
         <Route exact strict path="/hotels" element = {<List/>}></Route>
         <Route exact strict path="/hotels/:id" element = {<Hotel/>}></Route>
         <Route exact strict path="/login" element={ <Login/> } />
+        <Route exact strict path="/register" element={<Register/>}></Route>
     </Routes>
   );
 }

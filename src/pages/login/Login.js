@@ -34,15 +34,21 @@ const Login = () => {
 
 
     return (
+        <>
+        <div class="bg-image"></div>
         <div className="login">
+            
             <div className="lContainer">
+                <div className="heading"><i class="fa-regular fa-hotel icom"></i>HotelHub</div>
                 <input type="text" placeholder="UserName " id="username" name="username" onChange={handleChange} className="lInput"></input>
                 <input type="password" placeholder="Enter Password " id="password" name="password" onChange={handleChange} className="lInput"></input>
-                <button className="lButton" onClick={handleClick} disabled={loading} >Login</button>
-                {error && <span>{error.message}</span>}
+                <button type="button" onClick={handleClick} disabled={loading} className="btn btn-outline-light">Login</button>
+
+                {error && <span className="errormsg">{error.message}</span>}
             </div>
 
         </div>
+        </>
     )
 }
 
